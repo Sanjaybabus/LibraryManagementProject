@@ -1,0 +1,36 @@
+
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+
+<h2 align="center">Student Books details</h2>
+<head>
+    <link href="{% static 'css/issuebook.css' %}" rel="stylesheet">
+</head>
+    <from>
+        <table align="center"  border="2" class="table">
+    <tr>
+        <th>id</th>
+        <th>Student_Name</th>
+        <th>BookName</th>
+        <th>start_date</th>
+        <th>end_date</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+        {% for i in ddata %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.Student_Name }}</td>
+                <td>{{ i.BookName }}</td>
+                <td>{{ i.start_date }}</td>
+                <td>{{ i.end_date }}</td>
+                <td><a href="{% url 'Update' i.id %}">Update</a></td>
+                <td><a href="{% url 'Delete' i.id %}">Delete</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    </from>
+{% endblock %}

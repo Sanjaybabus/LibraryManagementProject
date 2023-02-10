@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link href="{% static 'css/student.css' %}" rel="stylesheet">
+</head>
+<body>
+<h2 align="center"> Student Registration Page </h2>
+<form action="stud" method="post">
+           {% csrf_token %}
+    <h3 style="color:red" align="center">{{data}}</h3>
+    <table align="center">
+
+    <tr>
+        <td>StudentName:</td>
+        <td><input type="text" name="txtStudentName"></td>
+    </tr>
+       <tr>
+         <td>Phno:</td>
+         <td><input type="number" name="txtPhno"></td>
+    </tr>
+      <tr>
+         <td>Semester:</td>
+         <td><input type="number" name="txtSemester"></td>
+    </tr>
+
+      <tr>
+          <td>Password:</td>
+          <td><input type="password" name="txtPassword"></td>
+    </tr>
+
+       <tr>
+      <tr>
+          <td>Course:</td>
+          <td>
+              <select name="ddlCourse">
+                  {% for i in Course_Data %}
+                      <option>{{i.course_name}}</option>
+
+                  {% endfor %}
+              </select>
+          </td>
+    </tr>
+    <tr>
+        <td><input type="Submit" name="btnsub" value="Register"></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

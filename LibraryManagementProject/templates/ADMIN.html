@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+     <link href="{% static 'css/ADMIN.css' %}" rel="stylesheet">
+</head>
+<body>
+<h2 align="center"> Admin Registration Page </h2>
+<form action="admindata" method="post">
+           {% csrf_token %}
+    <h3 style="color:red" align="center">{{data}}</h3>
+    <table align="center">
+
+    <tr>
+        <td>AdminName:</td>
+        <td><input type="text" name="txtAdminName" placeholder="enter the name"></td>
+    </tr>
+
+      <tr>
+         <td>Email:</td>
+         <td><input type="email" name="txtEmail" placeholder="enter the email"></td>
+    </tr>
+
+      <tr>
+          <td>Password:</td>
+          <td><input type="password" name="txtPassword" placeholder="enter the password"></td>
+    </tr>
+
+    <tr>
+        <td><input type="Submit" name="btnsub" value="Register"></td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>

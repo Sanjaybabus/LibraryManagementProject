@@ -1,0 +1,74 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<h2 align="center">Assign Book</h2>
+
+<div style="border-style:solid; padding:50px; bprder-color:black;
+            background-color:orange; width:40%; height:200px;float:left">
+
+<form action="assignread" method="post">
+     {% csrf_token %}
+<table align="center">
+        <tr>
+            <td>Stu_Semester</td>
+            <td><input type="number" name="txtsam"></td>
+        </tr>
+        <tr>
+          <td>Stu_Course:</td>
+          <td>
+              <select name="ddlcourse">
+                  {% for i in course %}
+                      <option>{{i.course_name}}</option>
+                  {% endfor %}
+              </select>
+          </td>
+    </tr>
+    <tr>
+
+        <td><input type="Submit" name="btnsub" value="Submit"></td>
+
+      </tr>
+</table>
+</form>
+</div>
+
+<div style="border-style:solid; padding:50px; border-color:black;
+            background-color:orange; width:40%; height:200px;float:left">
+
+<form action="issueread" method="post">
+      {% csrf_token %}
+    <table align="center">
+    <tr>
+        <td>Student_Name</td>
+        <td><select name="ddlstuname">
+            {% for i in student %}
+                <option>{{ i.StudentName }}</option>
+            {% endfor %}
+        </select> </td></tr>
+    <tr>
+
+        <td>BookName</td>
+        <td><select name="ddlbname">
+            {% for i in book %}
+                 <option>{{ i.BookName }}</option>
+            {% endfor %}
+        </select></td></tr>
+     <tr>
+            <td>start_date</td>
+            <td><input type="date" name="sdate" value="{{ data.start_date }}"></td>
+        </tr>
+      <tr>
+            <td>end_date</td>
+            <td><input type="date" name="edate" value="{{ data.end_date }}"></td>
+        </tr>
+       <tr>
+        <td><input type="Submit" name="btnsub" value="submit"></td>
+    </tr>
+        </select> </td>
+    </tr>
+</table>
+</form>
+</div>
+
+
+{% endblock %}

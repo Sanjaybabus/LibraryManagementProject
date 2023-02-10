@@ -1,0 +1,53 @@
+{% extends 'navbar2.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="{% static 'css/updatepro.css' %}" rel="stylesheet">
+</head>
+
+<div>
+
+
+<form method="post">
+     {% csrf_token %}
+    <div id = 'div1' style="margin-left:30%;">
+         <h2 align="">Update the Profile settings</h2>
+    <table align="" width="50%" style="height:30%">
+
+
+
+
+
+    <tr>
+        <td>StuName:</td>
+        <td><input type="text" name="txtStuName" value="{{ data.StudentName }}"></td>
+    </tr>
+    <tr>
+          <td>StuPhno:</td>
+          <td><input type="number" name="txtStuPhno" value="{{ data.Phno }}"></td>
+    </tr>
+
+    <tr>
+          <td>StuCourse:</td>
+          <td><input type="text" name="txtStuCourse" value="{{ data.Course_id}}"></td>
+    </tr>
+
+     <tr>
+          <td>StuSem:</td>
+          <td><input type="number" name="txtStuSem" value="{{ data.Semester }}"></td>
+    </tr>
+    <tr>
+          <td>StuPassword:</td>
+          <td><input type="password" name="txtStuPassword" value="{{ data.Password }}"></td>
+    </tr>
+
+      <tr>
+        <td><input type="submit" name="btnsub" value="UpdateProjile"></td>
+
+      </tr>
+
+</table>
+    </div>
+</form>
+</div>
+    {% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+
+<h2 align="center">Book details</h2>
+<head>
+    <link href="{% static 'css/display.css' %}" rel="stylesheet">
+</head>
+    <from>
+        <table align="center"  border="2" class="table">
+    <tr>
+        <th>id</th>
+        <th>BookName</th>
+        <th>AuthorName</th>
+        <th>Course_id</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+        {% for i in data %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.BookName }}</td>
+                <td>{{ i.AuthorName }}</td>
+                <td>{{ i.Course_id }}</td>
+                <td><a href="{% url 'Update' i.id %}">Update</a></td>
+                <td><a href="{% url 'Delete' i.id %}">Delete</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    </from>
+{% endblock %}

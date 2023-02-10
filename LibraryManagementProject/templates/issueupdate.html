@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<h2 align="center">issue Book Data</h2>
+<form method="post">
+     {% csrf_token %}
+
+    <tr>
+        <td>Student_Name:</td>
+        <td><input type="text" name="textname" value="{{issue.stu_name}}">
+    </tr>
+    <tr>
+          <td>BookName:</td>
+          <td><select name="txtbook">
+               <option selected>{{ issue.BookName }}</option>
+              {% for i in book %}
+                     <option>{{ i.BookName }}</option>
+              {% endfor %}
+          </select></td>
+    </tr>
+    <tr>
+        <td>start_date</td>
+        <td><input type="date" name="txtstart_date" value="issue.start_data"></td>
+    </tr>
+      <tr>
+        <td>end_date</td>
+        <td><input type="date" name="txtend_date" value="issue.end_date" ></td>
+    </tr>
+     <tr>
+        <td><input type="Submit" name="btnsub" value="submit"></td>
+    </tr>
+
+
+</form>
+
+{% endblock %}
